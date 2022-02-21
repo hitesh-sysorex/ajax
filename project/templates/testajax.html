@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Ajax</title>
+
+
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+<form id="sagufta" action="">
+    <div class="form-group">
+        <input class="form-control" type="number" name="age" min="10" max="100" placeholder="Age" required>
+      </div>
+      <button class="btn btn-primary form-control" type="submit">SUBMIT</button>
+</form>
+    <script>
+        $("form#sagufta").submit(function() {
+    
+    var ageInput = $('input[name="age"]').val().trim();
+    if (ageInput) {
+        // Create Ajax Call
+        alert("Pkd muh")
+        $.ajax({
+            url: '{% url "sagufta_create" %}',
+            data: {
+                'age': ageInput
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data.user) {
+                    alert("Pkd muh")
+                }
+            }
+        });
+
+    } else {
+        alert("All fields must have a valid value.");
+    }
+   
+});
+    </script>
+    
+</body>
+</html>

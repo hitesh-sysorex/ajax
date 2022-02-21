@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Body bgcolor Attribute example</title>
+  
+  </head>
+  <body>
+    <h1>This webpage has colored background.</h1>
+    <form  id="formid" action="">
+      <button type="submit" >submit</button>
+    <label for="fname">First name:</label>
+    <input  type="text" name="fname"><br><br>
+
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $("form#formid").submit(function()
+        {
+          var nameinput=$('input[name="fname"]').val();
+          $.ajax({
+            url:"crud/",
+            data:{
+              'name':nameinput
+            },
+            dataType:'json',
+            success:alert("hogya ");
+          });
+        }
+      
+
+      );
+    </script>
+  </body>
+
+</html>
